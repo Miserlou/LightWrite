@@ -1,1 +1,16 @@
-Derp
+body{
+	background: #aabbcc;
+}
+
+body textarea #writearea{
+	font:  Georgia, serif;
+	color: #eeeeee;
+	background: #ffffff;
+	padding: 5px;
+	border: 0;
+	width: 960px;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-spacing: 0;
+}
