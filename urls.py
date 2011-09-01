@@ -7,7 +7,7 @@ from django.conf.urls.defaults import patterns, include, url
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'lightwrite.views.home', name='home'),
-    # url(r'^lightwrite/', include('lightwrite.foo.urls')),
+     url(r'^$', 'lightwrite.texts.views.root'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
