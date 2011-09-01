@@ -1,0 +1,3 @@
+# LightWrite
+## A web-based WriteRoom clone
+### Rich Jones - rich@gun.io
