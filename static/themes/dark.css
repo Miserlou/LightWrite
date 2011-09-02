@@ -1,0 +1,67 @@
+.smoke-base {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  -moz-transition: all .3s;
+  -webkit-transition: opacity .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.smoke-base .dialog {
+  top: 25%;
+  left: 0%;
+  width: 100%;
+}
+
+.smoke-base .dialog-inner { 
+	padding: 15px;
+}
+
+.smoke {
+    text-transform: none;
+		color:#000000;
+		font-weight: normal;
+    background-color: rgba(f,f,f,.75);
+    border-top:2px solid #333;
+    border-bottom:2px solid #333;
+		font: 48px/120% 'Georgia',Georgia,serif;
+	  text-shadow: 0 0 1px #666677;
+}
+
+.smoke #sub{
+    text-transform: none;
+		color:#000000;
+		font-weight: normal;
+    background-color: rgba(f,f,f,.75);
+		font: 28px/120% 'Georgia',Georgia,serif;
+	  text-shadow: 0 0 1px #666677;
+	  padding: 15px; 
+}
+.dialog-buttons {
+	margin: 5px 0 5px 0;
+}
+
+.dialog-buttons button {
+    border-radius: 3px;
+    text-transform: uppercase;
+    background-color: #ebebeb;
+    color: #333;
+    font-size:11px;
+    padding:6px 9px;
+    border:1px solid #333;
+}
+
+button.cancel { 
+	background-color: #999; 
+	color:#222
+}
+
+.dialog-prompt input{
+	width:300px;
+	text-align:center;
+	background-color:#ccc;
+}
