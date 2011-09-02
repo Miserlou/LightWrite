@@ -1,16 +1,44 @@
-body{
-	background: #aabbcc;
+html{
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
-body textarea #writearea{
-	font:  Georgia, serif;
-	color: #eeeeee;
+body{
 	background: #ffffff;
-	padding: 5px;
+	padding: 0;
+}
+
+#main {
+	margin: 0;
+	padding: 0;
+}
+
+#main form div textarea#writearea{
+	font: 28px/120% 'Georgia',Georgia,serif;
+	color: #000000;
+	background: #ffffff;
 	border: 0;
-	width: 960px;
-	height: 100%;
+	outline: none;
+	width: 720px;
+	height: 80%;
 	overflow-x: hidden;
 	overflow-y: auto;
 	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	text-shadow: 0 0 1px #666677
+
+}
+
+#footer{
+	background: #ffffff;
+	height: 20%;
+}
+
+#footer-items{
+	background: #ffffff;
+	height: 50px;
+	color: #ff0000;
 }

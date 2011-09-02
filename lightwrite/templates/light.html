@@ -2,13 +2,39 @@
 <head>
 <title>LightWrite - Gun.io</title>
 <link href="/static/light.css" media="screen" rel="stylesheet" type="text/css" />
-</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="/static/jquery.textarea.js"></script>
+<script>
+ $(document).ready(function(){
+	 $('#writearea').focus();
+	 $("#writearea").tabby();
+	 $("#writearea").val('{{ret}}');
+	 $('#footer-items').hide();
+	 $.getJSON('/t/{{wash}}', function (data, textStatus, jqXHR) {
+				$('#writearea').val(data[0]['fields']['text'])
+		});
+
+
+ })
+</script>
+<script type="text/javascript">
+</script>
+
+</head
 <body>
-<div id="main">
-		<form name="bodytext" method="post" action="" target="saver">
-		<div><textarea cols="50" rows="20" id="writearea" name="writearea">Start writing here</textarea>
+<center>
+		<div id="main">
+				<form name="bodytext" onclick="$('#footer-items').slideUp('fast');" method="post" action="" target="saver">
+				<div><textarea cols="50" rows="20" id="writearea" name="writearea">Welcome!</textarea>
+				<div>{{tform.text}}
+				</div>
+				</form>
+		<div>
+		<div id="footer" onmouseover="$('#footer-items').slideDown('slow');">
+				<div id="footer-items" style="display: block;">
+			  Save Online. Export to File.
+				</div>
 		</div>
-		</form>
-<div>
+</center>
 </body>
 </html>
