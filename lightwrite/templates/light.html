@@ -6,13 +6,13 @@
 <script src="/static/jquery.textarea.js"></script>
 <script>
  $(document).ready(function(){
-	 $('#writearea').focus();
-	 $("#writearea").tabby();
-	 $("#writearea").val('{{ret}}');
-	 $('#footer-items').hide();
 	 $.getJSON('/t/{{wash}}', function (data, textStatus, jqXHR) {
 				$('#writearea').val(data[0]['fields']['text'])
 		});
+	 $('#writearea').focus();
+	 $("#writearea").tabby();
+	 $('#footer-items').hide();
+	 $('#writearea').focus();
 
 
  })
@@ -24,15 +24,14 @@
 <body>
 <center>
 		<div id="main">
-				<form name="bodytext" onclick="$('#footer-items').slideUp('fast');" method="post" action="" target="saver">
-				<div><textarea cols="50" rows="20" id="writearea" name="writearea">Welcome!</textarea>
-				<div>{{tform.text}}
+				<form name="bodytext" onclick="$('#footer-items').slideUp('fast');" method="post" action="/{{wash}}" target="saver">
+				<div>{% csrf_token %}<textarea cols="50" rows="20" id="writearea" name="writearea"></textarea>
 				</div>
-				</form>
 		<div>
 		<div id="footer" onmouseover="$('#footer-items').slideDown('slow');">
 				<div id="footer-items" style="display: block;">
-			  Save Online. Export to File.
+			  <input type="submit" value="Save Online" />Save Online.</input>  Export to File.
+				</form>
 				</div>
 		</div>
 </center>
