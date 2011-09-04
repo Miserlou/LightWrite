@@ -13,7 +13,12 @@
 	 $("#writearea").tabby();
 	 $('#footer-items').hide();
 	 $('#writearea').focus();
-   $('#save').click(function () {
+ })
+	 var light = true;
+</script>
+<script type="text/javascript">
+   function sendo(){
+				alert('sendo');
         var writearea= $('textarea[name=writearea]');
         var csrf= $('input[name=csrfmiddlewaretoken]');
         var data = 'csrfmiddlewaretoken=' + csrf.val() + '&writearea='  + encodeURIComponent(writearea.val()) + '&save=Save+Online';
@@ -25,9 +30,7 @@
         });
 				smoke.signal('Saved!<br /><div id=sub>You can find this text at http://gun.io/w/{{wash}}</div> ');
         return false;
-    });
- })
-	 var light = true;
+    }
 </script>
 <script type="text/javascript">
 function lights(){
@@ -66,11 +69,19 @@ function lights(){
 				</div>
 		<div>
 		<div id="footer" onmouseover="$('#footer-items').slideDown('slow');">
-				<div id="footer-items" style="display: block;">
-			  <input type="submit" value="Save Online" id="save" name="save" /></input><input type="submit" value="Export to File" name="export" />
-				</form>
-				<a onClick="javascript:smoke.signal('Saved!<br /><div id=sub>You can find this text at http://gun.io/w/{{wash}}</div> ');">Smoke</a>
-				<a onClick="lights()">Lights on!</a>
+				<div id="footer-items" style="display: block; width: 720px">
+				    <div id="logo" style="float:left; text-align: left;">
+							<img src="/static/gunio.png">
+						</div>
+						<div id="buttons" style="float: center; width: 350px; text-align: center;">
+								<button onClick="sendo()" class="clean-gray">Save Online</button>
+								<button onClick="" class="clean-gray">Export to File</button>
+								<button onClick="lights()" class="clean-gray">Lights</button>
+								</form>
+						</div>
+						<div id="about" style="display:inline;float: right; text-align: right;">
+								<button onClick="lights()" class="clean-gray">About</button>
+						</div>
 				</div>
 		</div>
 </center>
