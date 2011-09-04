@@ -12,7 +12,7 @@ import random
 import string 
 
 def root(request):
-    wash = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(9))
+    wash = ''.join(random.choice(string.ascii_lowercase + string.digits) for x in range(9))
     return HttpResponseRedirect('/' + wash) 
 
 def write(request, wash):

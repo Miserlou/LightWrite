@@ -3,6 +3,7 @@ html{
 	margin: 0;
 	overflow-x: hidden;
 	overflow-y: hidden;
+
 }
 
 body{
@@ -28,7 +29,7 @@ body{
 	border-spacing: 0;
 	margin: 0;
 	padding: 0;
-	text-shadow: 0 0 1px #666677
+	text-shadow: 0 0 1px #666677;
 
 }
 

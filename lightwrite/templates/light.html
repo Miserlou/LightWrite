@@ -14,15 +14,37 @@
 	 $('#footer-items').hide();
 	 $('#writearea').focus();
 
-
  })
+	 var light = true;
 </script>
 <script type="text/javascript">
+function lights(){
+	if(!light){
+	    $('#writearea').css('background-color', '#ffffff');
+	    $('body').css('background-color', '#ffffff');
+	    $('#footer').css('background-color', '#ffffff');
+	    $('#footer-items').css('background-color', '#ffffff');
+	    $('#main form div textarea#writearea').css('color', '#000000');
+	    $('#main form div textarea#writearea').css('text-shadow', '0 0 1px #666677');
+  	  light = true; 
+  }
+  else{	
+	    $('#writearea').css('background-color', '#000000');
+	    $('body').css('background-color', '#000000');
+	    $('#footer').css('background-color', '#000000');
+	    $('#footer-items').css('background-color', '#000000');
+	    $('#main form div textarea#writearea').css('color', '#ffffff');
+	    $('#main form div textarea#writearea').css('text-shadow', '0 0 1px #999988');
+  	  light = false; 
+  }
+
+	
+}
 </script>
 <link rel="stylesheet" href="static/smoke.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="static/themes/dark.css" type="text/css" media="screen" />
 <script src="static/smoke.min.js" type="text/javascript"></script>
-
+<link href="/static/favicon.ico" rel="SHORTCUT ICON">
 </head>
 <body>
 <center>
@@ -36,6 +58,7 @@
 			  <input type="submit" value="Save Online" name="save" /></input><input type="submit" value="Export to File" name="export" />
 				</form>
 				<a onClick="javascript:smoke.signal('Saved!<br /><div id=sub>You can find this text at http://gun.io/w/{{wash}}</div> ');">Smoke</a>
+				<a onClick="lights()">Lights on!</a>
 				</div>
 		</div>
 </center>
