@@ -16,7 +16,6 @@ def root(request):
     return HttpResponseRedirect('/' + wash) 
 
 def write(request, wash):
-
     if request.method == 'POST':
         t = Text.objects.filter(wash=wash)
         if (len(t)==0):

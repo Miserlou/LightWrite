@@ -13,7 +13,19 @@
 	 $("#writearea").tabby();
 	 $('#footer-items').hide();
 	 $('#writearea').focus();
-
+   $('#save').click(function () {
+        var writearea= $('textarea[name=writearea]');
+        var csrf= $('input[name=csrfmiddlewaretoken]');
+        var data = 'csrfmiddlewaretoken=' + csrf.val() + '&writearea='  + encodeURIComponent(writearea.val()) + '&save=Save+Online';
+				$.ajax({
+            url: "/{{wash}}",
+            type: "POST",
+            data: data,
+            cache: false,
+        });
+				smoke.signal('Saved!<br /><div id=sub>You can find this text at http://gun.io/w/{{wash}}</div> ');
+        return false;
+    });
  })
 	 var light = true;
 </script>
@@ -55,7 +67,7 @@ function lights(){
 		<div>
 		<div id="footer" onmouseover="$('#footer-items').slideDown('slow');">
 				<div id="footer-items" style="display: block;">
-			  <input type="submit" value="Save Online" name="save" /></input><input type="submit" value="Export to File" name="export" />
+			  <input type="submit" value="Save Online" id="save" name="save" /></input><input type="submit" value="Export to File" name="export" />
 				</form>
 				<a onClick="javascript:smoke.signal('Saved!<br /><div id=sub>You can find this text at http://gun.io/w/{{wash}}</div> ');">Smoke</a>
 				<a onClick="lights()">Lights on!</a>
