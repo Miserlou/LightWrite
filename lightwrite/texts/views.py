@@ -12,10 +12,14 @@ import json
 import random
 import string 
 
+# Redirect to a random page
+# If deploying, make sure you have a REDIR in your local_settings
+# TODO: Don't redirect to already taken pads
 def root(request):
     wash = ''.join(random.choice(string.ascii_lowercase + string.digits) for x in range(9))
     return HttpResponseRedirect(settings.REDIR + '/' + wash) 
 
+# The main event
 def write(request, wash):
     if request.method == 'POST':
         t = Text.objects.filter(wash=wash)
@@ -38,6 +42,7 @@ def write(request, wash):
 
     return render_to_response('light.html', {'wash': wash,}, context_instance=RequestContext(request))
 
+# Get the text result
 def json_get_text(request, wash):
     t = Text.objects.filter(wash=wash)
     if (len(t)==0):
