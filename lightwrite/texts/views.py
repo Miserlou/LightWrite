@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import get_object_or_404, render_to_response
 from django.core import serializers
+from django.conf import settings
 
 from lightwrite.texts.models import Text, TextForm
 
@@ -13,7 +14,7 @@ import string
 
 def root(request):
     wash = ''.join(random.choice(string.ascii_lowercase + string.digits) for x in range(9))
-    return HttpResponseRedirect('/' + wash) 
+    return HttpResponseRedirect(settings.REDIR + '/' + wash) 
 
 def write(request, wash):
     if request.method == 'POST':
@@ -34,7 +35,7 @@ def write(request, wash):
             resp = HttpResponse(t[0].text.strip(), mimetype='text/plain')
             resp['Content-Disposition'] = 'attachment; filename=' + wash + '.txt'
             return resp
- 
+
     return render_to_response('light.html', {'wash': wash,}, context_instance=RequestContext(request))
 
 def json_get_text(request, wash):
