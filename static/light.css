@@ -6,6 +6,9 @@ html{
 
 }
 
+a{border-width: 0px;}
+img{border-width: 0px;}
+
 body{
 	background: #ffffff;
 	padding: 0;
@@ -30,12 +33,13 @@ body{
 	margin: 0;
 	padding: 0;
 	text-shadow: 0 0 1px #666677;
-
+	resize: none;
 }
 
 #footer{
 	background: #ffffff;
-	height: 20%;
+	margin-top: 50px;
+	height: 5%;
 }
 
 #footer-items{
@@ -68,7 +72,10 @@ button.clean-gray {
   padding: 8px 0;
   text-align: center;
   text-shadow: 0 1px 0 #eee;
-  width: 100px; }
+  width: 100px; 
+	margin-left: 5px;
+	margin-right: 5px;
+	}
   button.clean-gray:hover {
     background-color: #dddddd;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#bbbbbb));

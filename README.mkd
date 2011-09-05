@@ -1,3 +1,9 @@
-# LightWrite
+# [http://gun.io/w/](LightWrite) - by Gun.io
 ## A web-based WriteRoom clone
 ### Rich Jones - rich@gun.io
+
+LightWrite is a free and open source web-based clone of (http://www.hogbaysoftware.com/products/writeroom)[WriteRoom] by HogBaySoftware.
+
+LightWrite is built on lots of open source componants, including Python, Django, jQuery, and Smoke.js.
+
+Are there bugs or features you want for LightWrite? Get in touch! 

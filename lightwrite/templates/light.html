@@ -13,12 +13,16 @@
 	 $("#writearea").tabby();
 	 $('#footer-items').hide();
 	 $('#writearea').focus();
+   jQuery("#logoo").hover(function() {
+				jQuery('#logoo').attr("src", "/static/gunio2.png")
+		}, function(){
+				jQuery('#logoo').attr("src", "/static/gunio.png");
+		}); 
  })
 	 var light = true;
 </script>
 <script type="text/javascript">
    function sendo(){
-				alert('sendo');
         var writearea= $('textarea[name=writearea]');
         var csrf= $('input[name=csrfmiddlewaretoken]');
         var data = 'csrfmiddlewaretoken=' + csrf.val() + '&writearea='  + encodeURIComponent(writearea.val()) + '&save=Save+Online';
@@ -30,6 +34,11 @@
         });
 				smoke.signal('Saved!<br /><div id=sub>You can find this text at http://gun.io/w/{{wash}}</div> ');
         return false;
+    }
+</script>
+<script type="text/javascript">
+   function save(){
+				$('#bodytext').submit();
     }
 </script>
 <script type="text/javascript">
@@ -56,6 +65,19 @@ function lights(){
 	
 }
 </script>
+<SCRIPT TYPE="text/javascript">
+function popup(mylink, windowname)
+{
+		if (! window.focus)return true;
+		var href;
+		if (typeof(mylink) == 'string')
+			 href=mylink;
+		else
+			 href=mylink.href;
+		window.open(href, windowname, 'width=400,height=600,scrollbars=yes');
+		return false;
+}
+</SCRIPT>
 <link rel="stylesheet" href="static/smoke.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="static/themes/dark.css" type="text/css" media="screen" />
 <script src="static/smoke.min.js" type="text/javascript"></script>
@@ -64,23 +86,23 @@ function lights(){
 <body>
 <center>
 		<div id="main">
-				<form name="bodytext" onclick="$('#footer-items').slideUp('fast');" method="post" action="/{{wash}}" target="saver">
-				<div>{% csrf_token %}<textarea cols="50" rows="20" id="writearea" name="writearea"></textarea>
+				<form name="bodytext" method="post" action="/{{wash}}" id="bodytext" target="saver">
+				<div>{% csrf_token %}<textarea onclick="$('#footer-items').slideUp('fast');" cols="50" rows="20" id="writearea" name="writearea"></textarea>
 				</div>
 		<div>
 		<div id="footer" onmouseover="$('#footer-items').slideDown('slow');">
-				<div id="footer-items" style="display: block; width: 720px">
-				    <div id="logo" style="float:left; text-align: left;">
-							<img src="/static/gunio.png">
+				<div id="footer-items" style="display: block; width: 760px">
+				    <div id="logo" style="float:left; clear: left">
+							<a href="http://gun.io" target="_blank"><img id="logoo" src="/static/gunio.png"></a>
 						</div>
-						<div id="buttons" style="float: center; width: 350px; text-align: center;">
-								<button onClick="sendo()" class="clean-gray">Save Online</button>
-								<button onClick="" class="clean-gray">Export to File</button>
-								<button onClick="lights()" class="clean-gray">Lights</button>
-								</form>
+						</form>
+						<div id="buttons" style="width: 350px; text-align: center; margin-left: 100px; float: left;">
+								<button onClick="sendo()" type="button" class="clean-gray">Save Online</button>
+								<button onClick="save()" type="button" class="clean-gray">Export to File</button>
+								<button onClick="lights()" type="button" class="clean-gray">Lights</button>
 						</div>
-						<div id="about" style="display:inline;float: right; text-align: right;">
-								<button onClick="lights()" class="clean-gray">About</button>
+						<div id="about" style="float: right;">
+								<button onClick="javascript:popup('/a/about', 'About');" type="button" class="clean-gray">About</button>
 						</div>
 				</div>
 		</div>
