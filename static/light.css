@@ -36,6 +36,11 @@ body{
 	resize: none;
 }
 
+::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
 #footer{
 	background: #ffffff;
 	margin-top: 50px;
