@@ -47,8 +47,8 @@ def json_get_text(request, wash):
     t = Text.objects.filter(wash=wash)
     if (len(t)==0):
         t = Text(wash=wash)
-        # TODO: Render Command as Unicode
-        t.text = '\n\nWelcome to LightWrite!\nby Gun.io\n\nLightWrite is a web-based clone of WriteRoom - it\'s a place to write your thoughts without any distractions.\n\nTo use LightWrite, just start typing! You can move your mouse over the bottom of the page to save your text online or export to a file. \n\nTo enter fullscreen mode, just press F11, or Command F if you\'re using OSX.\n\nEnjoy!\n\nLove,\nTeam Gun.io'
+        # Display mac command as HTML entity
+        t.text = '\n\nWelcome to LightWrite!\nby Gun.io\n\nLightWrite is a web-based clone of WriteRoom - it\'s a place to write your thoughts without any distractions.\n\nTo use LightWrite, just start typing! You can move your mouse over the bottom of the page to save your text online or export to a file. \n\nTo enter fullscreen mode, just press F11, or &#8984;F if you\'re using OSX.\n\nEnjoy!\n\nLove,\nTeam Gun.io'
         t.save() 
         t = Text.objects.filter(wash=wash)
     data = serializers.serialize("json", t)
